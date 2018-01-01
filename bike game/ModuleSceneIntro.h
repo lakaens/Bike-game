@@ -42,6 +42,6 @@ public:
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
 
-	Cube cube1, cube2,cube3;
-	PhysBody3D *cube_1,*cube_2,*cube_3;
+	Cube cube1, cube2, cube3, cubetest;
+	PhysBody3D *cube_1, *cube_2, *cube_3, *cube_test=NULL;
 };
