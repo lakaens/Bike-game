@@ -110,10 +110,10 @@ update_status ModuleCamera3D::Update(float dt)
 	Position.x = vehicle_pos.x;
 	Position.y = vehicle_pos.y + 3.f;
 	Position.z = vehicle_pos.z;
-	Position += (-2.f * dir);
+	Position += (-5.f * dir);
 
 	vec3 target = { vehicle_pos.x, vehicle_pos.y + 1.f, vehicle_pos.z };
-	target += (5.f * dir);
+	target += (7.f * dir);
 
 	LookAt(target);
 
