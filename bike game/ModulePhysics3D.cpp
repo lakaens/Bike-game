@@ -396,3 +396,19 @@ int	 DebugDrawer::getDebugMode() const
 {
 	return mode;
 }
+
+Cube* ModulePhysics3D::AddCube(vec3 size, vec3 pos, float angle, vec3 axis, Color color) {
+	Cube* cube = new Cube;
+	cube->size = size;
+	cube->SetPos(pos.x, pos.y, pos.y);
+	cube->SetRotation(angle, axis);
+	cube->color = color;
+	return cube;
+
+}
+PhysBody3D* ModulePhysics3D::AddCubePB(Cube* cube, bool sensor, Module* callback) {
+	PhysBody3D* cubepb;
+	cubepb = App->physics->AddBody(*cube, 0);
+	cubepb->collision_listeners.add(callback);
+	return cubepb;
+}

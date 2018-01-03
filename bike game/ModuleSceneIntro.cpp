@@ -36,6 +36,11 @@ bool ModuleSceneIntro::Start()
 	//cube_3=App->physics->AddBody(cube3, 2000);
 	//
 
+	cubetest = App->physics->AddCube(vec3(4, 0.05, 20), vec3(0, 0, 10), 0, vec3(1, 0, 0), Green);
+	cube_test = App->physics->AddCubePB(cubetest, false, this);
+
+
+
 	cube1.size = vec3(5, 0.05, 20);
 	cube1.color = White;
 	cube1.SetPos(0, 0, 10);
@@ -131,6 +136,11 @@ update_status ModuleSceneIntro::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
+
+	cube_test->GetTransform(&cubetest->transform);
+	cubetest->Render();
+
+
 	cube_1->GetTransform(&cube1.transform);
 	cube1.Render();
 	cube_2->GetTransform(&cube2.transform);
