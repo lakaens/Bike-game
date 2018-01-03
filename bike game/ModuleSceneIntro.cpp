@@ -4,6 +4,8 @@
 #include "Primitive.h"
 #include "PhysBody3D.h"
 #include"PhysVehicle3D.h"
+#include "SDL2_ttf-2.0.14\include\SDL_ttf.h"
+#include <string>
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -17,6 +19,53 @@ bool ModuleSceneIntro::Start()
 {
 	LOG("Loading Intro assets");
 	bool ret = true;
+
+
+	TTF_Init();
+
+	int window_w = 200;
+	int window_h = 600;
+
+	SDL_CreateWindowAndRenderer(200, 600, 0, &window, &renderer);
+	//renderer = SDL_CreateRenderer(App->window->window, -1, 0);
+	SDL_SetWindowPosition(window, SCREEN_WIDTH / 2 - window_w - 25, SCREEN_HEIGHT / 2);
+	font = TTF_OpenFont("images/times.ttf", 24);
+	if (font == NULL)
+		LOG("FONT FAILED TO LOAD");
+
+	get_text_and_rect(renderer, 0, 0, text1, font, &texture1, &rect1);
+	//get_text_and_rect(renderer, 0, rect1.y + rect1.h, "world", font, &texture2, &rect2);
+
+
+
+	//*****Sensor
+
+	sensor1.size = { 10,2,1 };
+	sensor1.SetPos(30, 0, 30);
+	sensor_1 = App->physics->AddBody(sensor1, 0);
+	sensor_1->SetAsSensor(true);
+	sensor_1->collision_listeners.add(this);
+	
+
+	//******Constraint
+
+	constraintcube.size = vec3(120, 12, 1);
+	constraintcube.SetPos(30, 0, 30);
+	constraintcube.color = White;
+	constraintcube.SetRotation(90, vec3(0, 0, 1));
+	constraintpb = App->physics->AddBody(constraintcube, 10000);
+	constraintpb->GetBody()->setLinearFactor(btVector3(0, 0, 0));
+
+	motor1.height = 1;
+	motor1.radius = 0.1f;
+	motor1.SetPos(30, 0, 30);
+	motor1.SetRotation(90, vec3(0, 0, 1));
+	motor_1 = App->physics->AddBody(motor1, 10000);
+	motor_1->GetBody()->setLinearFactor(btVector3(0, 0, 0));
+
+	App->physics->AddConstraintHinge(*motor_1, *constraintpb, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1, 0, 0), vec3(0, 0, 0), true, true);
+
+	//**********
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
@@ -119,6 +168,11 @@ bool ModuleSceneIntro::Start()
 bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
+	TTF_Quit();
+	SDL_DestroyTexture(texture1);
+	SDL_DestroyTexture(texture2);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
 
 	return true;
 }
@@ -129,8 +183,50 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 
+	//*****TIMER
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	{
+		timer = !timer;
+		aux1 = (float)SDL_GetTicks() / 1000;
+		aux3 = cont;
+		LOG("Timer: %f", cont);
+	}
 
+	if (timer)
+	{
 
+		aux2 = (float)SDL_GetTicks() / 1000 - aux1;
+
+		cont = aux2 + aux3;
+	}
+
+	//**INT TO CHAR
+	//cont=(((int)cont * 100) % 100) / 100;
+	std::string s = std::to_string(cont);
+	cont_char = s.c_str();
+	cont_charr = (char*)cont_char;
+
+	//TIMER****
+
+	constraintpb->GetTransform(&constraintcube.transform);
+	constraintcube.Render();
+
+	sensor_1->GetTransform(&sensor1.transform);
+	sensor1.Render();
+
+	//**Print text
+
+	get_text_and_rect(renderer, 0, 0, cont_charr, font, &texture1, &rect1);
+
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+	SDL_RenderClear(renderer);
+
+	SDL_RenderCopy(renderer, texture1, NULL, &rect1);
+	SDL_RenderCopy(renderer, texture2, NULL, &rect2);
+	SDL_RenderPresent(renderer);
+	SDL_DestroyTexture(texture1);
+
+	//*******
 
 	cube_1->GetTransform(&cube1->transform);
 	cube1->Render();
@@ -215,5 +311,9 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
+	if (body1==pb_chassis || body1==sensor_1){//body1 == sensor_1) {
+		LOG("COLLISIOOOOON");
+	}
+	LOG("REEEEEEEEEEEEEE");
 }
 

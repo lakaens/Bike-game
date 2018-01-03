@@ -98,6 +98,8 @@ bool ModulePlayer::Start()
 
 	vehicle = App->physics->AddVehicle(car);
 	vehicle->SetPos(0, 2, 0);
+	vehicle->GetTransform(&matrix);
+	vehicle->collision_listeners.add(this);
 	/*
 	para cojer la posicion del vehiculo hacer un GetPos en vehicle? 
 	o

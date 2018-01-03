@@ -87,7 +87,7 @@ update_status ModulePhysics3D::PreUpdate(float dt)
 		{
 			PhysBody3D* pbodyA = (PhysBody3D*)obA->getUserPointer();
 			PhysBody3D* pbodyB = (PhysBody3D*)obB->getUserPointer();
-
+			
 			if(pbodyA && pbodyB)
 			{
 				p2List_item<Module*>* item = pbodyA->collision_listeners.getFirst();
@@ -240,7 +240,7 @@ PhysBody3D* ModulePhysics3D::AddBody(const Cube& cube, float mass)
 	btRigidBody* body = new btRigidBody(rbInfo);
 	PhysBody3D* pbody = new PhysBody3D(body);
 
-	body->setUserPointer(pbody);
+	//body->setUserPointer(pbody);
 	world->addRigidBody(body);
 	bodies.add(pbody);
 
@@ -267,7 +267,7 @@ PhysBody3D* ModulePhysics3D::AddBody(const Cylinder& cylinder, float mass)
 	btRigidBody* body = new btRigidBody(rbInfo);
 	PhysBody3D* pbody = new PhysBody3D(body);
 
-	body->setUserPointer(pbody);
+	//body->setUserPointer(pbody);
 	world->addRigidBody(body);
 	bodies.add(pbody);
 
@@ -329,7 +329,7 @@ PhysVehicle3D* ModulePhysics3D::AddVehicle(const VehicleInfo& info)
 	PhysVehicle3D* pvehicle = new PhysVehicle3D(body, vehicle, info);
 	world->addVehicle(vehicle);
 	vehicles.add(pvehicle);
-
+	pvehicle->collision_listeners.add(this);
 	return pvehicle;
 }
 
@@ -346,7 +346,7 @@ void ModulePhysics3D::AddConstraintP2P(PhysBody3D& bodyA, PhysBody3D& bodyB, con
 	p2p->setDbgDrawSize(2.0f);
 }
 
-void ModulePhysics3D::AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisA, const vec3& axisB, bool disable_collision)
+void ModulePhysics3D::AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisA, const vec3& axisB, bool disable_collision, bool motor)
 {
 	btHingeConstraint* hinge = new btHingeConstraint(
 		*(bodyA.body), 
@@ -355,6 +355,9 @@ void ModulePhysics3D::AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, c
 		btVector3(anchorB.x, anchorB.y, anchorB.z),
 		btVector3(axisA.x, axisA.y, axisA.z), 
 		btVector3(axisB.x, axisB.y, axisB.z));
+
+	if (motor)
+		hinge->enableAngularMotor(true, 1000.0f, INFINITE);
 
 	world->addConstraint(hinge, disable_collision);
 	constraints.add(hinge);
