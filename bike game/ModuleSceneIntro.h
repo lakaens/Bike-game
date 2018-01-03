@@ -42,9 +42,7 @@ public:
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
 
-	Cube cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8, tunel1r, tunel1l, tunel1u, cube9;
-	PhysBody3D *cube_1, *cube_2, *cube_3, *cube_4, *cube_5, *cube_6, *cube_7, *cube_8, *tunel_1r, *tunel_1l, *tunel_1u, *cube_9;
+	Cube *cube1, *cube2, *cube3, *cube4, *cube5, *cube6, *cube7, *cube8, *tunel1r, *tunel1l, *tunel1u, *cube9, *cube10, *cube11, *cube12, *cube13, *cube14, *cube15, *cube16, *cube17, *cube18, *cube19, *cube20, *cube21, *cube22, *cube23, *cube24, *cube25;
+	PhysBody3D *cube_1, *cube_2, *cube_3, *cube_4, *cube_5, *cube_6, *cube_7, *cube_8, *tunel_1r, *tunel_1l, *tunel_1u, *cube_9, *cube_10, *cube_11, *cube_12, *cube_13, *cube_14, *cube_15, *cube_16, *cube_17, *cube_18, *cube_19, *cube_20, *cube_21, *cube_22, *cube_23, *cube_24, *cube_25;
 
-	Cube *cubetest;
-	PhysBody3D *cube_test;
 };

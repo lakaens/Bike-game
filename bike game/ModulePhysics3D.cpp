@@ -400,7 +400,7 @@ int	 DebugDrawer::getDebugMode() const
 Cube* ModulePhysics3D::AddCube(vec3 size, vec3 pos, float angle, vec3 axis, Color color) {
 	Cube* cube = new Cube;
 	cube->size = size;
-	cube->SetPos(pos.x, pos.y, pos.y);
+	cube->SetPos(pos.x, pos.y, pos.z);
 	cube->SetRotation(angle, axis);
 	cube->color = color;
 	return cube;
