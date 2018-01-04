@@ -41,8 +41,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Ricardo\Desktop\BikeGameGithubBackups\Bike-game3-1-2202\bike game\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Ricardo\Desktop\BikeGameGithubBackups\Bike-game3-1-2202\bike game\SDL2_ttf-2.0.14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Eric\Desktop\bike game\SDL2_ttf-2.0.14\include;C:\Users\Ricardo\Desktop\BikeGameGithubBackups\Bike-game3-1-2202\bike game\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Eric\Desktop\bike game\SDL2_ttf-2.0.14\lib;C:\Users\Ricardo\Desktop\BikeGameGithubBackups\Bike-game3-1-2202\bike game\SDL2_ttf-2.0.14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Users\Ricardo\Desktop\BikeGameGithubBackups\Bike-game3-1-2202\bike game\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>

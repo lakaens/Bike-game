@@ -70,74 +70,109 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	cube1 = App->physics->AddCube(vec3(5, 0.05, 20), vec3(0, 0, 10), 0, vec3(1,0,0), Green);
+	cube1 = App->physics->AddCube(vec3(5, 0.05, 20), vec3(0, 1, 10), 0, vec3(1,0,0), Red);
 	cube_1 = App->physics->AddCubePB(cube1, false, this);
 
-	cube2 = App->physics->AddCube(vec3(5, 0.05, 4), vec3(-4.5, 0, 18), 0, vec3(1,0,0), Green);
+	cube2 = App->physics->AddCube(vec3(7, 0.05, 5), vec3(-6, 1, 17.4), 0, vec3(1,0,0), Red);
 	cube_2 = App->physics->AddCubePB(cube2, false, this);
 
-	cube3 = App->physics->AddCube(vec3(5, 2, 4), vec3(-9, 0, 18), -25, vec3(0,0,1), Green);
+	cube3 = App->physics->AddCube(vec3(5, 2, 5), vec3(-12, 0.7, 17.5), -15, vec3(0,0,1), Red);
 	cube_3 = App->physics->AddCubePB(cube3, false, this);
 
-	cube4 = App->physics->AddCube(vec3(5, 2, 4), vec3(-15, 0, 18), 25, vec3(0, 0, 1), Green);
+	cube4 = App->physics->AddCube(vec3(5, 2, 5), vec3(-22, 0.7, 17.5), 15, vec3(0, 0, 1), Red);
 	cube_4 = App->physics->AddCubePB(cube4, false, this);
 
-	cube5 = App->physics->AddCube(vec3(5, 0.05, 4), vec3(-19.5, 0, 18), 0, vec3(1, 0, 0), Green);
+	cube5 = App->physics->AddCube(vec3(10, 0.05, 5), vec3(-29.5, 1, 17.5), 0, vec3(1, 0, 0), Red);
 	cube_5 = App->physics->AddCubePB(cube5, false, this);
 
-	cube6 = App->physics->AddCube(vec3(8, 0.05, 5), vec3(-24.7, 0, 19.7), 23, vec3(0, 1, 0), Green);
+	cube6 = App->physics->AddCube(vec3(12, 0.05, 5), vec3(-39, 1, 19.65), 23, vec3(0, 1, 0), Red);
 	cube_6 = App->physics->AddCubePB(cube6, false, this);
 
-	cube7 = App->physics->AddCube(vec3(5, 0.05, 10), vec3(-27.5, 0, 25), 0, vec3(1, 0, 0), Green);
+	cube7 = App->physics->AddCube(vec3(5, 0.05, 13), vec3(-43, 1, 26.2), 0, vec3(1, 0, 0), Red);
 	cube_7 = App->physics->AddCubePB(cube7, false, this);
-
-	cube8 = App->physics->AddCube(vec3(5, 2, 5), vec3(-27.5, 0, 32), -30, vec3(1, 0, 0), Green);
+	 
+	cube8 = App->physics->AddCube(vec3(5, 2, 5), vec3(-43, 1, 32), -30, vec3(1, 0, 0), Red);
 	cube_8 = App->physics->AddCubePB(cube8, false, this);
 	
-	cube9 = App->physics->AddCube(vec3(5, 2, 5), vec3(-27.5, 1.2, 36.5), 0, vec3(1, 0, 0), Green);
+	cube9 = App->physics->AddCube(vec3(5, 2, 9), vec3(-43, 2.1, 38.2), 0, vec3(1, 0, 0), Red);
 	cube_9 = App->physics->AddCubePB(cube9, false, this);
 
-	cube10 = App->physics->AddCube(vec3(5, 2, 5), vec3(-27.5, 0, 41), 30, vec3(1, 0, 0), Green);
+	cube10 = App->physics->AddCube(vec3(5, 2, 10), vec3(-43, 0.45, 47.1), 20, vec3(1, 0, 0), Red);
 	cube_10 = App->physics->AddCubePB(cube10, false, this);
 
-	cube11 = App->physics->AddCube(vec3(5, 0.05, 10), vec3(-27.5, 0, 46), 0, vec3(1, 0, 0), Green);
+	cube11 = App->physics->AddCube(vec3(5, 0.05, 18), vec3(-43, 1, 57.5), 0, vec3(1, 0, 0), Red);
 	cube_11 = App->physics->AddCubePB(cube11, false, this);
 
-	cube12 = App->physics->AddCube(vec3(7, 0.05, 4), vec3(-21.5, 0, 49), 0, vec3(1, 0, 0), Green);
+	cube12 = App->physics->AddCube(vec3(20, 0.05, 5), vec3(-35.5, 1, 69), 0, vec3(1, 0, 0), Red);
 	cube_12 = App->physics->AddCubePB(cube12, false, this);
 
-	cube13 = App->physics->AddCube(vec3(10, 0.05, 4), vec3(-15, 1, 49), 15, vec3(0, 0, 1), Green);
+	cube13 = App->physics->AddCube(vec3(15, 0.05, 5), vec3(-18.3, 2.95, 69), 15, vec3(0, 0, 1), Red);
 	cube_13 = App->physics->AddCubePB(cube13, false, this);
 
-	cube14 = App->physics->AddCube(vec3(5, 0.05, 17), vec3(-7.8, 2.3, 42.5), 0, vec3(1, 0, 0), Green);
+	cube14 = App->physics->AddCube(vec3(5, 0.05, 17), vec3(-8.6, 4.9, 63), 0, vec3(1, 0, 0), Red);
 	cube_14 = App->physics->AddCubePB(cube14, false, this);
 
-	cube15 = App->physics->AddCube(vec3(3, 0.05, 8), vec3(-2.5, 0.75, 29), -60, vec3(0, 1, 0), Green);
+	cube15 = App->physics->AddCube(vec3(5, 0.05, 12), vec3(-8.6, 2.85, 48.85), -20, vec3(1, 0, 0), Red);
 	cube_15 = App->physics->AddCubePB(cube15, false, this);
 
-	cube16 = App->physics->AddCube(vec3(12, 0.05, 4), vec3(8.5, 0, 23), 0, vec3(1, 0, 0), Green);
+	cube16 = App->physics->AddCube(vec3(5, 0.05, 15), vec3(-5, 1, 38), -30, vec3(0, 1, 0), Red);
 	cube_16 = App->physics->AddCubePB(cube16, false, this);
 
-	cube17 = App->physics->AddCube(vec3(5, 0.05, 8), vec3(12.5, 0, 18), -20, vec3(0, 1, 0), Green);
+	cube17 = App->physics->AddCube(vec3(5, 0.05, 10), vec3(2, 1, 29), -50, vec3(0, 1, 0), Red);
 	cube_17 = App->physics->AddCubePB(cube17, false, this);
 
-	cube18 = App->physics->AddCube(vec3(5, 2, 5), vec3(14, 0, 12), 22.5, vec3(1.6, -1, 0), Green);
+	cube18 = App->physics->AddCube(vec3(5, 2, 15), vec3(6, 0, 25), 35, vec3(4, -10, 0), Red);
 	cube_18 = App->physics->AddCubePB(cube18, false, this);
 
-	cube19 = App->physics->AddCube(vec3(5, 2, 7.8), vec3(14.6, 0.8, 6), 0, vec3(1, 0, 0), Green);
+	cube19 = App->physics->AddCube(vec3(5, 2, 25), vec3(10, 1.5, 6.5), 0, vec3(1, 0, 0), Red);
 	cube_19 = App->physics->AddCubePB(cube19, false, this);
 
-	cube20 = App->physics->AddCube(vec3(5, 2, 5), vec3(14.6, -0.1, 0.4), -22.5, vec3(1, 0, 0), Green);
+	cube20 = App->physics->AddCube(vec3(5, 0.05, 8), vec3(10, 2, -13), 0, vec3(1, 0, 0), Red);
 	cube_20 = App->physics->AddCubePB(cube20, false, this);
 
-	cube21 = App->physics->AddCube(vec3(5, 0.05, 12), vec3(16.5, 0, -7), -20, vec3(0, 1, 0), Green);
+	cube21 = App->physics->AddCube(vec3(5, 0.05, 8), vec3(10, 0.95, -20.88), 15, vec3(-1, 0, 0), Red);
 	cube_21 = App->physics->AddCubePB(cube21, false, this);
 
-	cube22 = App->physics->AddCube(vec3(5, 0.05, 15), vec3(16, 0, -18), 20, vec3(0, 1, 0), Green);
+	cube22 = App->physics->AddCube(vec3(5, 0.05, 12), vec3(10, 1, -26.8), 0, vec3(1, 0, 0), Red);
 	cube_22 = App->physics->AddCubePB(cube22, false, this);
 
-	cube23 = App->physics->AddCube(vec3(15, 0.05, 4), vec3(7.8, 0, -24), 0, vec3(1, 0, 0), Green);
+	cube23 = App->physics->AddCube(vec3(25, 0.05, 5), vec3(0, 1, -35.2), 0, vec3(1, 0, 0), Red);
 	cube_23 = App->physics->AddCubePB(cube23, false, this);
+
+	cube24 = App->physics->AddCube(vec3(25, 0.05, 5), vec3(-22, 1, -29.3), 30, vec3(0, 1, 0), Red);
+	cube_24 = App->physics->AddCubePB(cube24, false, this);
+
+	cube25 = App->physics->AddCube(vec3(7, 0.05, 5), vec3(-35.1, 1, -23.4), 0, vec3(1, 0, 0), Red);
+	cube_25 = App->physics->AddCubePB(cube25, false, this);
+
+	cube26 = App->physics->AddCube(vec3(5, 2, 5), vec3(-41.3, 0.7, -23.4), -15, vec3(0, 0, 1), Red);
+	cube_26 = App->physics->AddCubePB(cube26, false, this);
+
+	cube27 = App->physics->AddCube(vec3(5, 2, 5), vec3(-51.3, 0.7, -23.4), 15, vec3(0, 0, 1), Red);
+	cube_27 = App->physics->AddCubePB(cube27, false, this);
+
+	cube28 = App->physics->AddCube(vec3(5, 0.05, 15), vec3(-56.5, 1, -18), 0, vec3(1, 0, 0), Red);
+	cube_28 = App->physics->AddCubePB(cube28, false, this);
+	
+	cube29 = App->physics->AddCube(vec3(25, 0.05, 5), vec3(-46.5, 1, -7.6), -25, vec3(0, 1, 0), Red);
+	cube_29 = App->physics->AddCubePB(cube29, false, this);
+
+	cube30 = App->physics->AddCube(vec3(5, 0.05, 15), vec3(-38, 1, 1.9), -25, vec3(0, 1, 0), Red);
+	cube_30 = App->physics->AddCubePB(cube30, false, this);
+
+	cube31 = App->physics->AddCube(vec3(13, 0.05, 5), vec3(-36.95, 1, 10.15), 0, vec3(1, 0, 0), Red);
+	cube_31 = App->physics->AddCubePB(cube31, false, this);
+
+	cube32 = App->physics->AddCube(vec3(5, 0.05, 30), vec3(-26.5, 1, -2), -25, vec3(0, 1, 0), Red);
+	cube_32 = App->physics->AddCubePB(cube32, false, this);
+
+	cube33 = App->physics->AddCube(vec3(25, 0.05, 5), vec3(-10, 1, -14.2), 0, vec3(1, 0, 0), Red);
+	cube_33 = App->physics->AddCubePB(cube33, false, this);
+
+	cube34 = App->physics->AddCube(vec3(5, 0.05, 12), vec3(0, 1, -6), 0, vec3(1, 0, 0), Red);
+	cube_34 = App->physics->AddCubePB(cube34, false, this);
+
+
 
 	////tunel1l.size = vec3(8, 3, 0.05);
 	////tunel1l.color = White;
@@ -182,7 +217,7 @@ update_status ModuleSceneIntro::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
-
+	
 	//*****TIMER
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
@@ -297,6 +332,38 @@ update_status ModuleSceneIntro::Update(float dt)
 	cube_23->GetTransform(&cube23->transform);
 	cube23->Render();
 
+	cube_24->GetTransform(&cube24->transform);
+	cube24->Render();
+
+	cube_25->GetTransform(&cube25->transform);
+	cube25->Render();
+
+	cube_26->GetTransform(&cube26->transform);
+	cube26->Render();
+
+	cube_27->GetTransform(&cube27->transform);
+	cube27->Render();
+
+	cube_28->GetTransform(&cube28->transform);
+	cube28->Render();
+
+	cube_29->GetTransform(&cube29->transform);
+	cube29->Render();
+
+	cube_30->GetTransform(&cube30->transform);
+	cube30->Render();
+
+	cube_31->GetTransform(&cube31->transform);
+	cube31->Render();
+
+	cube_32->GetTransform(&cube32->transform);
+	cube32->Render();
+
+	cube_33->GetTransform(&cube33->transform);
+	cube33->Render();
+
+	cube_34->GetTransform(&cube34->transform);
+	cube34->Render();
 
 	/*tunel_1l->GetTransform(&tunel1l.transform);
 	tunel1l.Render();

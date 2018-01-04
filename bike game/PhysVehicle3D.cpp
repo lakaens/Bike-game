@@ -25,7 +25,7 @@ void PhysVehicle3D::Render()
 {
 	Cylinder wheel;
 
-	wheel.color = Blue;
+	wheel.color = Green;
 
 	for(int i = 0; i < vehicle->getNumWheels(); ++i)
 	{
@@ -34,7 +34,7 @@ void PhysVehicle3D::Render()
 
 		vehicle->updateWheelTransform(i);
 		vehicle->getWheelInfo(i).m_worldTransform.getOpenGLMatrix(&wheel.transform);
-
+		
 		wheel.Render();
 	}
 
