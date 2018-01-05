@@ -73,16 +73,16 @@ bool ModuleSceneIntro::Start()
 	cube1 = App->physics->AddCube(vec3(5, 0.05, 20), vec3(0, 1, 10), 0, vec3(1,0,0), Red);
 	cube_1 = App->physics->AddCubePB(cube1, false, this);
 
-	cube2 = App->physics->AddCube(vec3(7, 0.05, 5), vec3(-6, 1, 17.4), 0, vec3(1,0,0), Red);
+	cube2 = App->physics->AddCube(vec3(7, 0.05, 5), vec3(-6, 1, 17.48), 0, vec3(1,0,0), Red);
 	cube_2 = App->physics->AddCubePB(cube2, false, this);
 
-	cube3 = App->physics->AddCube(vec3(5, 2, 5), vec3(-12, 0.7, 17.5), -15, vec3(0,0,1), Red);
+	cube3 = App->physics->AddCube(vec3(5, 2, 5), vec3(-12, 0.7, 17.48), -15, vec3(0,0,1), Red);
 	cube_3 = App->physics->AddCubePB(cube3, false, this);
 
-	cube4 = App->physics->AddCube(vec3(5, 2, 5), vec3(-22, 0.7, 17.5), 15, vec3(0, 0, 1), Red);
+	cube4 = App->physics->AddCube(vec3(5, 2, 5), vec3(-20, 0.7, 17.5), 15, vec3(0, 0, 1), Red);
 	cube_4 = App->physics->AddCubePB(cube4, false, this);
 
-	cube5 = App->physics->AddCube(vec3(10, 0.05, 5), vec3(-29.5, 1, 17.5), 0, vec3(1, 0, 0), Red);
+	cube5 = App->physics->AddCube(vec3(12, 0.05, 5), vec3(-28.5, 1, 17.5), 0, vec3(1, 0, 0), Red);
 	cube_5 = App->physics->AddCubePB(cube5, false, this);
 
 	cube6 = App->physics->AddCube(vec3(12, 0.05, 5), vec3(-39, 1, 19.65), 23, vec3(0, 1, 0), Red);
@@ -378,8 +378,8 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body1==pb_chassis || body1==sensor_1){//body1 == sensor_1) {
-		LOG("COLLISIOOOOON");
+	if (body1== sensor_1 && body2== (PhysBody3D*)App->player->vehicle){//body1 == sensor_1) {
+		
 	}
 	LOG("REEEEEEEEEEEEEE");
 }
