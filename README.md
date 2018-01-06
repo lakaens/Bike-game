@@ -1,6 +1,7 @@
 # Car-game
 
 This game is a project from 2 students of CITM UPC Terrassa for the Physichs 2 subject based on Bullet.
+
 The main goal is to create a racing game.
 
 ## Team Members
