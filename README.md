@@ -17,7 +17,7 @@ You have to be the fastest player and make the best time in a lap.
 ## Sensors
 
 We have implemented 6 sensors for this game. 4 are made for the checkpoints.
-This ones are around the map, when you reach one a coin sounds. If you reach a checkpoint and the car goes out of the map you will respawn in the last checkpoint you have reached.
+This ones are around the map. If you reach a checkpoint and the car goes out of the map you will respawn in the last checkpoint you have reached.
 The 2 remaining sensors are the for the finish line. One is made for starting the race against the clock. The other one is to stop it.
 
 ## How I know the time that i've made?
@@ -35,6 +35,8 @@ The left one to go to the left.
 The right one to go to the right.
 
 The down one to brake and if you keep pushing it you will go backward.
+
+In case you get stuck you can press the letter 'R' to restart and go to the starting line.
 
 ## License
 
