@@ -1,1 +1,3 @@
-# Bike-game
+# Car-game
+
+## Controls
