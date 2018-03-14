@@ -2,3 +2,12 @@ version: 1.0.{build}
 image: Visual Studio 2017
 build:
   verbosity: minimal
+  
+  after_build:
+- 7z a SpikeFromAppveyor.zip "c:\projects\Bike-game\Debug\3D Physics - class6.exe"
+- 7z a SpikeFromAppveyor.zip "c:\projects\Bike-game\Game"
+- 7z a SpikeFromAppveyor.zip "c:\projects\Bike-game\*.dll"
+- 7z a SpikeFromAppveyor.zip "c:\projects\Bike-game\README.md"
+
+artifacts:
+- path: Bike-gameAppveyor.zip
