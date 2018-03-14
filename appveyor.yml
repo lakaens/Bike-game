@@ -5,9 +5,9 @@ build:
   
   after_build:
 - 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\cargame code\Debug\3D Physics - class6.exe"
-- 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\Game"
-- 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\*.dll"
-- 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\README.md"
+- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\cargame code"
+- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\cargame code\Game\*.dll"
+- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\README.md"
 
 artifacts:
 - path: Bike-gameAppveyor.zip
