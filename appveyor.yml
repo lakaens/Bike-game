@@ -4,7 +4,7 @@ build:
   verbosity: minimal
   
   after_build:
-- 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\Debug\3D Physics - class6.exe"
+- 7z a SpikeFromAppveyor.zip "Este equipo\Documentos\GitHub\Bike-game\CarGame Code\Debug\3D Physics - class6.exe"
 - 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\Game"
 - 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\*.dll"
 - 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Bike-game\README.md"
