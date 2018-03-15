@@ -10,7 +10,7 @@ after_build:
 - cmd: copy "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Game\*.*" %APPVEYOR_BUILD_FOLDER%\BikeGame
 - cmd: move %APPVEYOR_BUILD_FOLDER%\README.md %APPVEYOR_BUILD_FOLDER%\BikeGame
 - cmd: move %APPVEYOR_BUILD_FOLDER%\CarGame Code\Game\music %APPVEYOR_BUILD_FOLDER%\BikeGame
-- 7z a Bike-GameRelease.zip %APPVEYOR_BUILD_FOLDER%\BikeGame
+- 7z a Bike-GameRelease.zip %APPVEYOR_BUILD_FOLDER%\BikeGame\*.*
 
 artifacts:
 - path: Bike-GameRelease.zip
