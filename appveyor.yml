@@ -4,9 +4,11 @@ build:
   verbosity: minimal
   
 after_build:
-- 7z a Bike-gameAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Debug\3D Physics - class6.exe"
-- 7z a Bike-gameAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Game"
-- 7z a Bike-gameAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\README.md"
+- cmd: mkdir %APPVEYOR_BUILD_FOLDER%\BikeGame
+- cmd: copy "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Release\3D Physics - class6.exe" %APPVEYOR_BUILD_FOLDER%\BikeGame
+- cmd: copy "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Game" %APPVEYOR_BUILD_FOLDER%\BikeGame
+- cmd: move %APPVEYOR_BUILD_FOLDER%\README.md %APPVEYOR_BUILD_FOLDER%\BikeGame
+- 7z a Bike-GameRelease.zip %APPVEYOR_BUILD_FOLDER%\BikeGame
 
 artifacts:
-- path: Bike-gameAppveyor.zip
+- path: Bike-GameRelease.zip
