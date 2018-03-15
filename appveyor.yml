@@ -4,8 +4,8 @@ build:
   verbosity: minimal
   
 before_build:
-- echo %%APPVEYOR_BUILD_FOLDER%\CarGame Code\Game
-- cd %%APPVEYOR_BUILD_FOLDER%\CarGame Code\Game
+- echo %APPVEYOR_BUILD_FOLDER%\CarGame Code\Game
+- cd %APPVEYOR_BUILD_FOLDER%\CarGame Code\Game
   
 after_build:
 - cmd: mkdir %APPVEYOR_BUILD_FOLDER%\BikeGame
