@@ -3,11 +3,10 @@ image: Visual Studio 2017
 build:
   verbosity: minimal
   
-  after_build:
-- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\cargame code\Debug\3D Physics - class6.exe"
-- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\cargame code"
-- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\cargame code\Game\*.dll"
-- 7z a SpikeFromAppveyor.zip "c:\projects\bike-game\README.md"
+after_build:
+- 7z a Bike-gameAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Debug\3D Physics - class6.exe"
+- 7z a Bike-gameAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\CarGame Code\Game"
+- 7z a Bike-gameAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\README.md"
 
 artifacts:
 - path: Bike-gameAppveyor.zip
